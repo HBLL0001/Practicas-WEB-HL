@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+mainClassName='org.example.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    //dependencia de Javalin
+    implementation 'io.javalin:javalin:5.3.2'
+    //manejo de log
+    implementation "org.slf4j:slf4j-simple:2.0.3"
+    //jsoup
+    implementation group: 'org.jsoup', name: 'jsoup', version: '1.15.3'
+    //plantillas
+    implementation 'org.thymeleaf:thymeleaf:3.1.1.RELEASE'
+    //render
+    implementation "io.javalin:javalin-rendering:5.3.2"
+    //h2 database
+    implementation 'com.h2database:h2:2.1.214'
+    //procesamiento JSON para Javalin
+    implementation("com.fasterxml.jackson.core:jackson-core:2.15.2")
+    implementation('com.fasterxml.jackson.core:jackson-databind:2.15.2')
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.15.2")
+    //ORM - Hibernate
+    implementation 'org.hibernate.orm:hibernate-core:6.0.2.Final'
+    //JASYPT encriptador
+    implementation group: 'org.jasypt', name: 'jasypt-wicket15', version: '1.9.3'
+    //postgressql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
+    //dotenv-java
+    implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+    implementation('com.j2html:j2html:1.0.0')
+}
+
+test {
+    useJUnitPlatform()
+}
+run{
+    standardInput = System.in
+}
