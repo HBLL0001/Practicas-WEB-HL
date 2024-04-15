@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+mainClassName = 'org.example.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    //dependencia de Javalin
+    implementation 'io.javalin:javalin:5.3.2'
+
+    //manejo de log.
+    implementation "org.slf4j:slf4j-simple:2.0.3"
+
+    //libreria jsoup.
+    implementation group: 'org.jsoup', name: 'jsoup', version: '1.15.3'
+
+    //sistemas de plantilla:
+    implementation 'org.thymeleaf:thymeleaf:3.1.1.RELEASE'
+
+    // En la versión 5.3.X separaron las clases del renderizado en otro proyecto
+    implementation "io.javalin:javalin-rendering:5.3.2"
+
+}
+
+test {
+    useJUnitPlatform()
+}
+run {
+    standardInput = System.in
+}
